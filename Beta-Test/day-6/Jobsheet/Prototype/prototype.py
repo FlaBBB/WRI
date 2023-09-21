@@ -4,8 +4,8 @@ class Character:
         self.HP = HP
         self.atk = atk
     
-    def clone(self):
-        return Character(self.name, self.HP, self.atk)
+    def clone(self, name:str = None, HP:int = None, atk:int = None):
+        return Character(self.name if name is None else name, self.HP if HP is None else HP, self.atk if atk is None else atk)
 
 class Warrior(Character):
     def __init__(self, name:str) -> None:
