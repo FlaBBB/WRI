@@ -14,11 +14,11 @@ class Warrior(Character):
         self.energy = 100
         super().__init__(name, HP, atk)
     
-    def clone(self):
-        obj = Warrior(self.name)
-        obj.HP = self.HP
-        obj.atk = self.atk
-        obj.energy = self.energy
+    def clone(self, name:str = None, HP:int = None, atk:int = None, energy:int = None):
+        obj = Warrior(self.name if name is None else name)
+        obj.HP = self.HP if HP is None else HP
+        obj.atk = self.atk if atk is None else atk
+        obj.energy = self.energy if energy is None else energy
         return obj
 
 class Mage(Character):
@@ -28,25 +28,21 @@ class Mage(Character):
         self.mana = 100
         super().__init__(name, HP, atk)
     
-    def clone(self):
-        obj = Mage(self.name)
-        obj.HP = self.HP
-        obj.atk = self.atk
-        obj.mana = self.mana
+    def clone(self, name:str = None, HP:int = None, atk:int = None, mana:int = None):
+        obj = Mage(self.name if name is None else name)
+        obj.HP = self.HP if HP is None else HP
+        obj.atk = self.atk if atk is None else atk
+        obj.mana = self.mana if mana is None else mana
         return obj
 
 if __name__ == "__main__":
     warrior_char = Warrior("Warrior Prototype")
     mage_char = Mage("Mage Prototype")
     
-    warrior1 = warrior_char.clone()
-    warrior1.name = "FlaB"
+    warrior1 = warrior_char.clone(name="FlaB")
     
-    warrior2 = warrior_char.clone()
-    warrior2.name = "noklentt"
+    warrior2 = warrior_char.clone(name="noklentt")
     
-    mage1 = mage_char.clone()
-    mage1.name = "Gopar"
+    mage1 = mage_char.clone(name="Gopar")
     
-    mage2 = mage_char.clone()
-    mage2.name = "xyz"
+    mage2 = mage_char.clone(name="xyz")
